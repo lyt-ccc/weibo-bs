@@ -1,0 +1,49 @@
+{
+  "pages": [
+    "pages/yj/index",
+
+    "pages/chatlist/index",
+    "pages/index/index",
+    "pages/login/index",
+    "pages/add/index",
+    "pages/login/resg/index",
+    "pages/set/index",
+    "pages/about/index",
+    "pages/chatdetail/index",
+    "pages/hot/index",
+    "pages/logs/logs"
+  ],
+  "window": {
+    "backgroundTextStyle": "light",
+    "navigationBarBackgroundColor": "#e9c68e",
+    "navigationBarTextStyle": "white",
+    "navigationStyle": "custom",
+    "backgroundColor": "#fbf1e5"
+  },
+  "tabBar": {
+    "color": "#f9fcfbde",
+    "selectedColor": "#433d3c",
+    "list": [
+      {
+        "pagePath": "pages/index/index",
+        "iconPath": "images/tabbar/home.png",
+        "selectedIconPath": "images/tabbar/home_cur.png",
+        "text": "首页"
+      },
+      {
+        "pagePath": "pages/hot/index",
+        "iconPath": "images/tabbar/hot.png",
+        "selectedIconPath": "images/tabbar/hot_cur.png",
+        "text": "热搜"
+      },
+      {
+        "pagePath": "pages/about/index",
+        "iconPath": "images/tabbar/about.png",
+        "selectedIconPath": "images/tabbar/about_cur.png",
+        "text": "我的"
+      }
+    ]
+  },
+  "style": "v2",
+  "sitemapLocation": "sitemap.json"
+}

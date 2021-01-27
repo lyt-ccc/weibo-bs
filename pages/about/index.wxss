@@ -1,0 +1,248 @@
+/* pages/about/index.wxss */
+.tab {
+  float: left;
+  width: 33.3333%;
+  text-align: center;
+  padding: 10rpx 0;
+  font-size: 16px;
+}
+
+.topTabSwiper {
+  border-top: 1px solid #ccc;
+  border-bottom: 1px solid #ccc;
+  zoom: 1;
+  font-weight: 600;
+  letter-spacing: 5rpx;
+  color: gray;
+  background-color: white;
+}
+
+.topTabSwiper:after {
+  content: "";
+  clear: both;
+  display: block;
+}
+
+.tabBorer {
+  border-bottom: 1px solid black;
+  color: black;
+  padding-bottom: 1vh;
+  font-weight: 600;
+  letter-spacing: 5rpx;
+}
+
+.swiper {
+  width: 100%;
+}
+
+.swiper_con {
+  text-align: center;
+  width: 100%;
+  height: 100%;
+  padding: 80rpx 0;
+}
+
+.tx {
+  width: 100%;
+  height: 100%;
+  background-color: rgba(255, 0, 0, 0.411);
+}
+
+.cu-avatar.xl {
+  width: 150rpx;
+  height: 150rpx;
+  font-size: 2.5em;
+
+}
+
+.margin-left {
+  margin-left: -160rpx;
+  margin-top: 25rpx;
+}
+
+.name {
+  font-size: 16px;
+  letter-spacing: 5rpx;
+  margin-left: 30rpx;
+  font-weight: bolder;
+}
+
+.fan {
+  background-color: antiquewhite;
+
+}
+
+.num {
+  font-size: 12px;
+  margin-right: 10rpx;
+  font-weight: bold;
+}
+
+.fans {
+  font-size: 10px;
+  margin-right: 20rpx;
+}
+
+.cuIcon-settingsfill {
+  font-size: 23px;
+}
+
+.cuIcon-markfill {
+  font-size: 23px;
+}
+.cuIcon-comment {
+  font-size: 23px;
+  font-weight: bold;
+}
+
+.cuIcon-more {
+  font-size: 20px;
+}
+
+.justify-end {
+  justify-content: flex-end;
+  margin-top: 20rpx;
+  position: relative;
+  right: -30px;
+}
+.ilocation{
+  position: relative;
+}
+/* 四宫格 */
+.content_tp {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+}
+
+.content-item {
+  width: 40%;
+  height: 280rpx;
+  background-color: red;
+  margin: 5px;
+  /* 绝对定位的父级必须要定位 */
+  position: relative;
+}
+
+.slide-image {
+  width: 100%;
+  height: 100%;
+}
+
+.content_bk {
+  /* display: flex; */
+  padding: 0 30rpx;
+  position: absolute;
+  left: 146rpx;
+  width: calc(100% - 96rpx - 60rpx - 120rpx - 20rpx);
+  line-height: 1.6em;
+}
+
+.gn {
+  padding-top: 50rpx;
+  /* background-color: chartreuse; */
+  position: relative;
+  right: -90rpx;
+}
+
+.cu-btn:not([class*="bg-"]) {
+  background-color:transparent;
+}
+
+.icon-add {
+  float: right;
+}
+
+.bb {
+  font-size: 120rpx;
+  color:white;
+  font-weight:100;
+}
+
+.btn-bj {
+  position: fixed;
+  left:630rpx;
+  top: 1100rpx;
+  z-index: 9999;
+  border-radius:100%;
+}
+
+.lb {
+  border-top-right-radius: 200rpx;
+  border-bottom-right-radius: 200rpx;
+  text-indent: -4rpx;
+}
+
+/* 模态框 */
+.modals {
+  position: fixed;
+  z-index: 999;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+}
+
+.modals .modals-cancel {
+  position: absolute;
+  z-index: 1000;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background-color: rgba(0, 0, 0, 0.5);
+}
+
+.modals .bottom-dialog-body {
+  position: fixed;
+  z-index: 10001;
+  bottom:150rpx;
+  left: 0;
+  right: 0;
+  padding: 30rpx;
+  height: 300rpx;
+  /* background-color: #fff; */
+}
+
+/*动画前初始位置*/
+
+.modals .bottom-pos {
+  -webkit-transform: translateY(100%);
+  transform: translateY(100%);
+}
+
+.modals .btn {
+  background: rgba(255, 255, 255, 0.82);
+  color: #333;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  height: 97rpx;
+  justify-content: center;
+  font-size: 34rpx;
+  border-radius: 0;
+  text-align: center;
+}
+
+.modals .sendFriends {
+  height: 97rpx;
+  width:auto;
+  text-align: center;
+  margin: 0;
+  padding-left: 60rpx;
+  /* background-color: green; */
+  border-bottom: 1rpx solid #acacac;
+}
+
+.modals .borderCl {
+  border-radius: 12rpx;
+  overflow: hidden;
+}
+
+.modals .cancel {
+  margin: 16rpx 0;
+}
+
+.bar-color{
+  background-image: linear-gradient(to right,#00c7fe, #00a7ff);
+}

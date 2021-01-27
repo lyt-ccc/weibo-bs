@@ -1,0 +1,46 @@
+<!--pages/set/index.wxml-->
+
+<view class="cu-bar bar-color bar">
+  <view class="flex">
+    <view class="flex radius margin-right-lg">
+      <view class="cu-capsule mc pc round padding-left-lg">
+        <button class="cu-btn icon addbg " catchtap="navigateToPage">
+          <text class="cuIcon-back "></text>
+        </button>
+      </view>
+    </view>
+    <view class="flex-treble pts text">设置</view>
+  </view>
+</view>
+
+<!-- 内容 -->
+<view class="cu-list menu {{menuBorder?'sm-border':''}} {{menuCard?'card-menu margin-top':''}}">
+  <view class="cu-item {{menuArrow?'arrow':''}}">
+    <view class="content">
+  
+      <text class="text-grey lg text-black">切换账号</text>
+    </view>
+    <view class="action">
+      <view class="cu-avatar-group">
+        <view class="cu-avatar round sm"
+          style="background-image:url(/images/my/tx.jpg);"></view>
+      </view>
+    </view>
+  </view>
+
+  <view class="cu-item {{menuArrow?'arrow':''}}" catchtap="ToPage">
+    <view class="content">
+  
+      <text class="text-grey lg text-black">意见反馈</text>
+    </view>
+    <view class="action">
+      <view class="cu-avatar-group">
+        <text class="cuIcon-right"></text>
+      </view>
+    </view>
+  </view>
+</view>
+
+<view class=" flex flex-direction">
+        <button catchtap="TologinPage" class="cu-btn bg-white margin-tb-sm lg text-black" style="width:100%">退出当前账号</button>
+      </view>

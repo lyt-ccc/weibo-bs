@@ -1,0 +1,45 @@
+/* pages/yj/index.wxss */
+.addbg {
+  /* border: 2px solid gray; */
+  background-color: transparent;
+}
+
+.cu-btn:not([class*="bg-"]) {
+  background-color: transparent;
+}
+
+.pts {
+  padding-top: 5rpx;
+}
+
+.text {
+  font-size: 38rpx;
+  letter-spacing: 5rpx;
+  padding-right: 30rpx;
+  font-weight: bold;
+
+}
+
+.cuIcon-back {
+  font-size: 38rpx;
+}
+
+@import "../../colorui/animation.wxss";
+
+image[class*="gif-"] {
+  border-radius: 6rpx;
+  display: block;
+}
+
+.tx {
+  position: relative;
+  /* background-color: tomato; */
+  top:800rpx;
+  left: 50rpx;
+}
+
+.tt {
+  margin: 0 230rpx;
+  font-size: 30rpx;
+  color: rgb(71, 70, 70);
+}

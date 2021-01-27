@@ -1,0 +1,44 @@
+<!--pages/login/index.wxml-->
+
+<view class="bg2" >
+  <!-- 登录表单 -->
+  <view class="content">
+    <view class="flex solid-bottom padding justify-center">
+      <view class=" padding-xl margin-top-xl radius">
+        <view class="cu-avatar margin-top-sm size-logo round margin-left"
+          style="background-image:url('/images/logo/logo.png');">
+        </view>
+      </view>
+    </view>
+    <view class="account hr ">
+
+      <view class="num">
+        <input bindinput="accountInput" placeholder="请输入用户名" placeholder-style="color:#3f3c3c;font-size:35rpx;" />
+      </view>
+    </view>
+  </view>
+  <view class="account hr">
+
+    <view class="num"><input bindblur="pwdBlur" placeholder="请输入密码" password
+        placeholder-style="color:#3f3c3c;font-size:35rpx;" />
+    </view>
+  </view>
+
+  <view class=" flex flex-direction">
+    <button class="btn cu-btn bg-color lg" catchtap="navigateToPage">
+      登录
+    </button>
+  </view>
+
+
+  <view class="flex solid-bottom padding justify-around size-font">
+    <navigator url="/pages/login/resg/index" open-type="navigateTo">
+      <view class=" padding-sm margin-xl ">找回密码</view>
+    </navigator>
+    <view class=" padding-sm margin-xl">
+      <navigator url="/pages/login/resg/index" open-type="navigateTo">注册</navigator>
+    </view>
+  </view>
+</view>
+<view class="bg" style="background-image:url('/images/my/bg.jpg');">
+</view>

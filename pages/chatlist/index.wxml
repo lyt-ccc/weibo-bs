@@ -1,0 +1,34 @@
+<!--pages/chatlist/index.wxml-->
+
+<view class="cu-bar bar-color bar">
+  <view class="flex">
+    <view class="flex radius margin-right-lg">
+      <view class="cu-capsule mc pc round padding-left-lg">
+
+        <button class="cu-btn icon addbg " catchtap="navigateToPage">
+          <text class="cuIcon-back margin-xs"></text>
+        </button>
+      </view>
+    </view>
+    <view class="flex-treble pts text">私信</view>
+  </view>
+</view>
+
+<view class="cu-list menu-avatar">
+    <view class="cu-item {{modalName=='move-box-'+ index?'move-cur':''}}" wx:for="{{chatlist}}" wx:key="id" item="{{item}}" bindtouchstart="ListTouchStart" bindtouchmove="ListTouchMove" bindtouchend="ListTouchEnd" data-target="move-box-{{index}}" >
+      <view class="cu-avatar round lg" style="background-image:url({{item.url}});"></view>
+      <view class="content" catchtap="ToPage">
+        <view class="text-grey">{{item.name}}</view>
+        <view class="text-gray text-sm">
+          <text class="cuIcon-infofill text-red"></text>{{item.message}}</view>
+      </view>
+      <view class="action">
+        <view class="text-grey text-xs">22:20</view>
+        <view class="cu-tag round bg-grey sm">9</view>
+      </view>
+      <view class="move">
+        <view class="bg-grey" >置顶</view>
+        <view class="bg-red" catchtap="delectPage">删除</view>
+      </view>
+    </view>
+  </view>

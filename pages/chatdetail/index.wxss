@@ -1,0 +1,25 @@
+/* pages/chatdetail/index.wxss */
+.addbg{
+  background-color:transparent;
+}
+.cu-btn:not([class*="bg-"]) {
+  background-color:transparent;
+}
+.text{
+  font-size: 38rpx;
+  letter-spacing: 5rpx;
+  padding-right: 30rpx;
+  font-weight:bold;
+}
+.bar-color{
+  background-image: linear-gradient(to right,#00c7fe, #00a7ff);
+}
+.cuIcon-back {
+  font-size: 40rpx;
+}
+.pts{
+  padding-top:7rpx;
+}
+page{
+  padding-bottom: 100rpx;
+}

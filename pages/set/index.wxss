@@ -1,0 +1,25 @@
+/* pages/set/index.wxss */
+.bar-color{
+  background-image: linear-gradient(to right,#00c7fe, #00a7ff);
+}
+.addbg {
+  /* border: 2px solid gray; */
+  background-color: transparent;
+}
+.cu-btn:not([class*="bg-"]) {
+  background-color: transparent;
+}
+.pts {
+  padding-top:5rpx;
+}
+
+.text {
+  font-size: 38rpx;
+  letter-spacing: 5rpx;
+  padding-right: 30rpx;
+  font-weight: bold;
+
+}
+.cuIcon-back{
+font-size:38rpx;
+}

@@ -1,0 +1,57 @@
+<!--pages/chatdetail/index.wxml-->
+<view class="cu-bar bar-color bar">
+  <view class="flex">
+    <view class="flex radius margin-right-lg">
+      <view class="cu-capsule mc pc round padding-left-lg">
+
+        <button class="cu-btn icon addbg " catchtap="navigateToPage">
+          <text class="cuIcon-back margin-xs"></text>
+        </button>
+      </view>
+    </view>
+    <view class="flex-treble pts text">广州张家辉</view>
+  </view>
+</view>
+
+<!-- 聊天内容 -->
+<view class="cu-chat">
+  <view class="cu-item self">
+    <view class="main">
+      <view class="content bg-green shadow">
+        <text>是兄弟就来砍我！</text>
+      </view>
+    </view>
+    <view class="cu-avatar radius" style="background-image:url(/images/my/tx.jpg);"></view>
+  </view>
+  <view class="cu-info round">对方撤回一条消息!</view>
+  <view class="cu-item">
+    <view class="cu-avatar radius" style="background-image:url(/images/my/lb2.jpg);"></view>
+    <view class="main">
+      <view class="content shadow">
+        <text>喵喵喵？喵喵喵？</text>
+      </view>
+    </view>
+  </view>
+  <view class="cu-info">
+    <text class="cuIcon-roundclosefill text-red "></text> 对方拒绝了你的消息
+  </view>
+  <view class="cu-info">
+    对方开启了好友验证，你还不是他(她)的好友。请先发送好友验证请求，对方验证通过后，才能聊天。
+    <text class="text-blue">发送好友验证</text>
+  </view>
+
+</view>
+
+<view class="cu-bar foot input {{InputBottom!=0?'cur':''}}" 
+  style="background-color:#dcdbe0; padding-top:0rpx;min-height:80rpx">
+  <view class="action">
+    <text class="cuIcon-sound text-grey"></text>
+  </view>
+  <input class="solid-bottom padding-left-sm" bindfocus="InputFocus" bindblur="InputBlur" adjust-position="{{false}}" focus="{{false}}"
+    maxlength="300" cursor-spacing="10" 
+    style="background-color:white;border-radius:20rpx;"></input>
+  <view class="action">
+    <text class="cuIcon-emojifill text-grey"></text>
+  </view>
+  <button class="cu-btn bg-green shadow" style="width:130rpx">发送</button>
+</view>

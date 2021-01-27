@@ -1,0 +1,404 @@
+<!--pages/about/index.wxml-->
+<!-- 搜索 -->
+<view class="cu-bar bar-color search bar">
+  <view class="search-form round search">
+    <text class="cuIcon-search"></text>
+    <input type="text" placeholder="搜索关键字" confirm-type="search"></input>
+  </view>
+</view>
+
+<!-- 头像 -->
+<view class="flex solid-bottom padding align-start bg-white">
+  <view>
+    <image class="cu-avatar xl round margin-center" src="/images/my/tx.jpg"></image>
+  </view>
+  <view class=" padding-sm margin-l">
+    <text class="name">柳州吴亦凡</text>
+    <view class="flex padding-xs margin-sm">
+      <text class="num">1220</text>
+      <text class="fans">粉丝</text>
+      <text class="num">120</text>
+      <text class="fans">关注</text>
+    </view>
+  </view>
+  <!-- 私信和设置 -->
+  <view class=" gn flex flex-wrap justify-between align-center ">
+    <button class="cu-btn icon" catchtap="setToPage">
+      <text class="cuIcon-settingsfill text-grey"></text>
+    </button>
+    <button class="cu-btn icon ">
+      <view class="cu-tag badge" catchtap="chatToPage">
+        <text style="font-size:20rpx">99+</text>
+      </view>
+      <text class="cuIcon-comment text-grey"></text>
+    </button>
+  </view>
+</view>
+
+
+<view class='topTabSwiper' >
+  <view class='tab  {{currentData == 0 ? "tabBorer" : ""}}' data-current="0" bindtap='checkCurrent'>动态</view>
+  <view class='tab  {{currentData == 1 ? "tabBorer" : ""}}' data-current="1" bindtap='checkCurrent'>我的</view>
+  <view class='tab  {{currentData == 2 ? "tabBorer" : ""}}' data-current="2" bindtap='checkCurrent'>收藏</view>
+</view>
+
+<!-- 添加 -->
+<view class="filed">
+  <button catchtap="navigateToPage" class="cu-btn btn-bj icon" bindtap="toggle" style="background-color:#2287ff; width:110rpx;height:110rpx">
+    <text class="cuIcon-add bb"></text>
+  </button>
+</view>
+
+<view class="modals modals-bottom-dialog" hidden="{{hideModal}}">
+  <view class="modals-cancel" bindtap="hideModal"></view>
+  <view class="bottom-dialog-body bottom-pos" animation="{{animationData}}">
+    <view class="borderCl">
+      <button class="btn sendFriends" bind:tap="eventDraw">收藏</button>
+      <view class="btn" bind:tap="eventDraw">转发</view>
+      <view class="btn" bind:tap="eventDraw">投诉</view>
+    </view> 
+    <view  catchtap="delect"  class="btn borderCl cancel ">删除</view>
+  </view>
+</view>
+
+<swiper current="{{currentData}}" class='swiper' style="height:1720px;" duration="300" bindchange="bindchange">
+
+  <!-- 动态 -->
+  <swiper-item>
+    <view class="cu-card dynamic {{isCard?'no-card':''}}">
+      <view class="cu-item shadow" style="margin-bottom:5rpx">
+        <view class="cu-list menu-avatar">
+          <view class="cu-item">
+            <view class="cu-avatar round lg" style="background-image:url(/images/my/tx.jpg);"></view>
+            <view class="content flex-sub">
+              <view>凯尔</view>
+              <view class="text-gray text-sm flex justify-between">
+                2019年12月3日
+              </view>
+            </view>
+            <view class="flex flex-wrap justify-between shareButtonBox align-center action" bindtap="showModal">
+              <button class="cu-btn" data-target="RadioModal">
+                <text class="cuIcon-more text-gray"></text>
+              </button>
+            </view>
+          </view>
+        </view>
+        <view class="text-content ">
+          折磨生出苦难，苦难又会加剧折磨，凡间这无穷的循环，将有我来终结！
+        </view>
+        <!-- 内容 -->
+        <view class='content_tp'>
+          <view class='content-item' wx:for="{{contentImgUrls}}" wx:key="url" wx:for-item="item">
+            <!-- 图片 -->
+            <image src="{{item.url}}" class="slide-image" mode='scaleToFill' />
+          </view>
+        </view>
+        <!-- </view> -->
+        <view class="text-gray text-sm1 text-right padding">
+          <text class="cuIcon-attentionfill margin-lr-xs"></text> 10
+          <text class="cuIcon-appreciatefill margin-lr-xs"></text> 20
+          <text class="cuIcon-messagefill margin-lr-xs"></text> 30
+        </view>
+      </view>
+    </view>
+
+    <view class="cu-card article {{isCard?'no-card':''}}">
+      <view class="cu-item shadow" wx:for="{{movelist}}" item="{{item}}">
+
+        <view class="cu-list menu-avatar">
+          <view class="cu-item">
+            <view class="cu-avatar round lg" style="background-image:url({{item.tx}});"></view>
+            <view class="content_bk flex-sub">
+              <view>{{item.name}}</view>
+              <view class="text-gray text-sm flex justify-between">
+                {{item.detail}}
+              </view>
+            </view>
+            <view class="flex flex-wrap justify-between shareButtonBox align-center action" bindtap="showModal">
+              <button class="cu-btn" data-target="RadioModal">
+                <text class="cuIcon-more text-gray"></text>
+              </button>
+            </view>
+          </view>
+        </view>
+        <view class="title">
+          <view class="text-cut">{{item.title}}</view>
+        </view>
+        <view class="content">
+          <image src="{{item.url}}" mode="aspectFill"></image>
+          <view class="desc">
+            <view class="text-content"> {{item.cont}}</view>
+            <view>
+              <view class="text-gray text-sm1 text-right">
+                <text class="cuIcon-attentionfill margin-lr-xs"></text> {{item.look}}
+                <text class="cuIcon-appreciatefill margin-lr-xs"></text> {{item.zan}}
+                <text class="cuIcon-messagefill margin-lr-xs"></text> {{item.talk}}
+              </view>
+            </view>
+          </view>
+        </view>
+      </view>
+
+    </view>
+
+    <view class="cu-card dynamic {{isCard?'no-card':''}}">
+      <view class="cu-item shadow" wx:for="{{mylist}}" item="{{item}}">
+        <view class="cu-list menu-avatar">
+          <view class="cu-item">
+
+            <view class="cu-avatar round lg" style="background-image:url({{item.tx}});"></view>
+            <view class="content flex-sub">
+              <view class="up-id">{{item.name}}</view>
+              <view class="text-gray text-sm flex justify-between">
+                {{item.detail}}
+              </view>
+            </view>
+            <view class="flex flex-wrap justify-between shareButtonBox align-center action" bindtap="showModal">
+              <button class="cu-btn" data-target="RadioModal">
+                <text class="cuIcon-more text-gray"></text>
+              </button>
+            </view>
+          </view>
+        </view>
+        <view class="text-content">
+          {{item.cont}}
+        </view>
+        <view class="grid flex-sub padding-lr {{isCard?'col-3 grid-square':'col-1'}}">
+          <view class="bg-img {{isCard?'':'only-img'}}" style="background-image:url({{item.url}});">
+          </view>
+        </view>
+        <view class="text-gray text-sm1 text-right padding">
+          <text class="cuIcon-attentionfill margin-lr-xs"></text>{{item.look}}
+          <text class="cuIcon-appreciatefill margin-lr-xs"></text>{{item.zan}}
+          <text class="cuIcon-messagefill margin-lr-xs"></text>{{item.zan}}
+        </view>
+      </view>
+    </view>
+
+  </swiper-item>
+
+  <!-- 我的-->
+  <swiper-item>
+    <view class="cu-card dynamic {{isCard?'no-card':''}}">
+      <view class="cu-item shadow">
+        <view class="cu-list menu-avatar">
+          <view class="cu-item">
+            <view class="cu-avatar round lg" style="background-image:url(/images/my/tx.jpg);"></view>
+            <view class="content flex-sub">
+              <view>柳州吴亦凡</view>
+              <view class="text-gray text-sm flex justify-between">
+                2019年12月3日
+              </view>
+            </view>
+            <view class="flex flex-wrap justify-between shareButtonBox align-center action" bindtap="showModal">
+              <button class="cu-btn"  data-target="RadioModal">
+                <text class="cuIcon-more text-gray"></text>
+              </button>
+            </view>
+          </view>
+        </view>
+        <view class="text-content ">
+          折磨生出苦难，苦难又会加剧折磨，凡间这无穷的循环，将有我来终结！
+        </view>
+        <!-- 内容 -->
+        <view class='content_tp'>
+          <view class='content-item' wx:for="{{contentImgUrls}}" wx:key="url" wx:for-item="item">
+            <!-- 图片 -->
+            <image src="{{item.url}}" class="slide-image" mode='scaleToFill' />
+          </view>
+        </view>
+        <!-- </view> -->
+        <view class="text-gray text-sm1 text-right padding">
+          <text class="cuIcon-attentionfill margin-lr-xs"></text> 10
+          <text class="cuIcon-appreciatefill margin-lr-xs"></text> 20
+          <text class="cuIcon-messagefill margin-lr-xs"></text> 30
+        </view>
+      </view>
+    </view>
+
+    <view class="cu-card article {{isCard?'no-card':''}}">
+      <view class="cu-item shadow" wx:for="{{movelist}}" item="{{item}}">
+
+        <view class="cu-list menu-avatar">
+          <view class="cu-item">
+            <view class="cu-avatar round lg" style="background-image:url({{item.tx}});"></view>
+            <view class="content_bk flex-sub">
+              <view>柳州吴亦凡</view>
+              <view class="text-gray text-sm flex justify-between">
+                {{item.detail}}
+              </view>
+            </view>
+            <view class="flex flex-wrap justify-between shareButtonBox align-center action" bindtap="showModal">
+              <button class="cu-btn" data-target="RadioModal">
+                <text class="cuIcon-more text-gray"></text>
+              </button>
+            </view>
+          </view>
+        </view>
+        <view class="title">
+          <view class="text-cut">{{item.title}}</view>
+        </view>
+        <view class="content">
+          <image src="{{item.url}}" mode="aspectFill"></image>
+          <view class="desc">
+            <view class="text-content"> {{item.cont}}</view>
+            <view>
+              <view class="text-gray text-sm1 text-right">
+                <text class="cuIcon-attentionfill margin-lr-xs"></text> {{item.look}}
+                <text class="cuIcon-appreciatefill margin-lr-xs"></text> {{item.zan}}
+                <text class="cuIcon-messagefill margin-lr-xs"></text> {{item.talk}}
+              </view>
+            </view>
+          </view>
+        </view>
+      </view>
+
+    </view>
+
+    <view class="cu-card dynamic {{isCard?'no-card':''}}">
+      <view class="cu-item shadow" wx:for="{{mylist}}" item="{{item}}">
+        <view class="cu-list menu-avatar">
+          <view class="cu-item">
+
+            <view class="cu-avatar round lg" style="background-image:url({{item.tx}});"></view>
+            <view class="content flex-sub">
+              <view class="up-id">柳州吴亦凡</view>
+              <view class="text-gray text-sm flex justify-between">
+                {{item.detail}}
+              </view>
+            </view>
+            <view class="flex flex-wrap justify-between shareButtonBox align-center action" bindtap="showModal">
+              <button class="cu-btn" data-target="RadioModal">
+                <text class="cuIcon-more text-gray"></text>
+              </button>
+            </view>
+          </view>
+        </view>
+        <view class="text-content">
+          {{item.cont}}
+        </view>
+        <view class="grid flex-sub padding-lr {{isCard?'col-3 grid-square':'col-1'}}">
+          <view class="bg-img {{isCard?'':'only-img'}}" style="background-image:url({{item.url}});">
+          </view>
+        </view>
+        <view class="text-gray text-sm1 text-right padding">
+          <text class="cuIcon-attentionfill margin-lr-xs"></text>{{item.look}}
+          <text class="cuIcon-appreciatefill margin-lr-xs"></text>{{item.zan}}
+          <text class="cuIcon-messagefill margin-lr-xs"></text>{{item.zan}}
+        </view>
+      </view>
+    </view>
+  </swiper-item>
+
+  <!-- 收藏 -->
+  <swiper-item>
+
+    <view class="cu-card dynamic {{isCard?'no-card':''}}">
+      <view class="cu-item shadow">
+        <view class="cu-list menu-avatar">
+          <view class="cu-item">
+            <view class="cu-avatar round lg" style="background-image:url(/images/my/tx.jpg);"></view>
+            <view class="content flex-sub">
+              <view>凯尔</view>
+              <view class="text-gray text-sm flex justify-between">
+                2019年12月3日
+              </view>
+            </view>
+            <view class="flex flex-wrap justify-between shareButtonBox align-center action" bindtap="showModal">
+              <button class="cu-btn" data-target="RadioModal">
+                <text class="cuIcon-more text-gray"></text>
+              </button>
+            </view>
+          </view>
+        </view>
+        <view class="text-content ">
+          折磨生出苦难，苦难又会加剧折磨，凡间这无穷的循环，将有我来终结！
+        </view>
+        <!-- 内容 -->
+        <view class='content_tp'>
+          <view class='content-item' wx:for="{{contentImgUrls}}" wx:key="url" wx:for-item="item">
+            <!-- 图片 -->
+            <image src="{{item.url}}" class="slide-image" mode='scaleToFill' />
+          </view>
+        </view>
+        <!-- </view> -->
+        <view class="text-gray text-sm1 text-right padding">
+          <text class="cuIcon-attentionfill margin-lr-xs"></text> 10
+          <text class="cuIcon-appreciatefill margin-lr-xs"></text> 20
+          <text class="cuIcon-messagefill margin-lr-xs"></text> 30
+        </view>
+      </view>
+    </view>
+
+    <view class="cu-card article {{isCard?'no-card':''}}">
+      <view class="cu-item shadow" wx:for="{{2}}">
+        <view class="cu-list menu-avatar">
+          <view class="cu-item">
+            <view class="cu-avatar round lg" style="background-image:url(/images/my/tx.jpg);"></view>
+            <view class="content_bk flex-sub">
+              <view>凯尔</view>
+              <view class="text-gray text-sm flex justify-between">
+                2019年12月3日
+              </view>
+            </view>
+            <view class="flex flex-wrap justify-between shareButtonBox align-center action" bindtap="showModal">
+              <button class="cu-btn" data-target="RadioModal">
+                <text class="cuIcon-more text-gray"></text>
+              </button>
+            </view>
+          </view>
+        </view>
+        <view class="title">
+          <view class="text-cut">无意者 烈火焚身;以正义的烈火拔出黑暗。我有自己的正义，见证至高的烈火吧。</view>
+        </view>
+        <view class="content">
+          <image src="/images/my/lb3.jpg" mode="aspectFill"></image>
+          <view class="desc">
+            <view class="text-content">折磨生出苦难，苦难又会加剧折磨，凡间这无穷的循环，将有我来终结！真正的恩典因不完整而美丽，因情感而真诚，因脆弱而自由</view>
+            <view>
+              <view class="text-gray text-sm1 text-right padding">
+                <text class="cuIcon-attentionfill margin-lr-xs"></text> 10
+                <text class="cuIcon-appreciatefill margin-lr-xs"></text>20
+                <text class="cuIcon-messagefill margin-lr-xs"></text>30
+              </view>
+            </view>
+          </view>
+        </view>
+      </view>
+    </view>
+
+    <view class="cu-card dynamic {{isCard?'no-card':''}}">
+      <view class="cu-item shadow" wx:for="{{mylist}}" item="{{item}}">
+        <view class="cu-list menu-avatar">
+          <view class="cu-item">
+
+            <view class="cu-avatar round lg" style="background-image:url({{item.tx}});"></view>
+            <view class="content flex-sub">
+              <view class="up-id">{{item.name}}</view>
+              <view class="text-gray text-sm flex justify-between">
+                {{item.detail}}
+              </view>
+            </view>
+            <view class="flex flex-wrap justify-between shareButtonBox align-center action" bindtap="showModal">
+              <button class="cu-btn" data-target="RadioModal">
+                <text class="cuIcon-more text-gray"></text>
+              </button>
+            </view>
+          </view>
+        </view>
+        <view class="text-content">
+          {{item.cont}}
+        </view>
+        <view class="grid flex-sub padding-lr {{isCard?'col-3 grid-square':'col-1'}}">
+          <view class="bg-img {{isCard?'':'only-img'}}" style="background-image:url({{item.url}});">
+          </view>
+        </view>
+        <view class="text-gray text-sm1 text-right padding">
+          <text class="cuIcon-attentionfill margin-lr-xs"></text>{{item.look}}
+          <text class="cuIcon-appreciatefill margin-lr-xs"></text>{{item.zan}}
+          <text class="cuIcon-messagefill margin-lr-xs"></text>{{item.zan}}
+        </view>
+      </view>
+    </view>
+  </swiper-item>
+</swiper>

@@ -1,0 +1,24 @@
+<!--pages/yj/index.wxml-->
+<view class="cu-bar bar" style=" background-image: linear-gradient(to right,#00c7fe, #00a7ff);">
+  <view class="flex">
+    <view class="flex radius margin-right-lg">
+      <view class="cu-capsule mc pc round padding-left-lg">
+        <button class="cu-btn icon addbg " catchtap="navigateToPage">
+          <text class="cuIcon-back "></text>
+        </button>
+      </view>
+    </view>
+    <view class="flex-treble pts text">意见反馈</view>
+  </view>
+</view>
+
+<!-- 内容 -->
+<view class="bg-white flex-sub radius shadow-lg">
+  <view class="tx">
+    <text class="tt">网络连接失败</text>
+  </view>
+    
+    <image src="https://image.weilanwl.com/gif/loading-white.gif" mode="aspectFit" class="gif-white response" style="height:1200rpx">
+    
+    </image>
+  </view>

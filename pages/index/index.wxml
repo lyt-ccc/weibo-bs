@@ -1,0 +1,405 @@
+<!--index.wxml-->
+<!-- <text>pages/index/index.wxml</text> -->
+<view class="cu-bar search bar bar-color">
+  <view class="search-form round search">
+    <text class="cuIcon-search"></text>
+    <input type="text" placeholder="搜索关键字" confirm-type="search"></input>
+  </view>
+</view>
+
+
+<view class="main">
+  <view class="cu-bar bar-color" style="margin:0rpx;padding:0rpx;min-height:30rpx;padding-bottom:30rpx">
+
+    <view class="swiper-tab-list {{currentTab==0 ? 'on' : ''}}" data-current="0" bindtap="swichNav">热点</view>
+    <view class="swiper-tab-list {{currentTab==1 ? 'on' : ''}}" data-current="1" bindtap="swichNav">科技</view>
+    <view class="swiper-tab-list {{currentTab==2 ? 'on' : ''}}" data-current="2" bindtap="swichNav">旅游</view>
+    <view class="swiper-tab-list {{currentTab==3 ? 'on' : ''}}" data-current="3" bindtap="swichNav">时尚</view>
+    <view class="swiper-tab-list {{currentTab==4 ? 'on' : ''}}" data-current="4" bindtap="swichNav">文章</view>
+  </view>
+
+  <swiper current="{{currentTab}}" class="swiper-box" duration="300" style="height:{{winHeight}}px"
+    bindchange="bindChange">
+
+
+    <!-- 热点 -->
+    <swiper-item>
+      <view class="cu-card dynamic {{isCard?'no-card':''}}">
+        <view class="cu-item shadow">
+          <view class="cu-list menu-avatar">
+            <view class="cu-item">
+              <view class="cu-avatar round lg" style="background-image:url(/images/my/tx.jpg);"></view>
+              <view class="content flex-sub">
+                <view class="up-id">鱼丸是个综艺狂</view>
+                <view class="text-gray text-sm flex justify-between">
+                  知名综艺博主
+                </view>
+              </view>
+              <view class="flex flex-wrap justify-between align-center ">
+                <button class="cu-btn icon action" style="width:60px;background-color:white;" bindtap="showToast">
+                  <text class="cuIcon-add"></text>关注
+                </button>
+              </view>
+            </view>
+          </view>
+          <view class="text-content">
+            逻辑天才郑泰昊
+          </view>
+          <!-- 内容 Setting data field "id" to undefined is invalid. -->
+          <view class='content_tp'>
+            <view class='content-item' wx:for="{{contentImgUrls}}" wx:key="url" wx:for-item="item">
+              <!-- 图片 -->
+              <image src="{{item.url}}" class="slide-image" mode='scaleToFill' />
+            </view>
+          </view>
+
+          <view class="text-gray text-sm1 text-right padding">
+            <text class="cuIcon-attentionfill margin-lr-xs"></text>12.5万
+            <text class="cuIcon-appreciatefill margin-lr-xs"></text> 9999+
+            <text class="cuIcon-messagefill margin-lr-xs"></text> 9999+
+          </view>
+        </view>
+      </view>
+
+      <view class="cu-card dynamic {{isCard?'no-card':''}}">
+        <view class="cu-item shadow">
+          <view class="cu-list menu-avatar">
+            <view class="cu-item">
+              <view class="cu-avatar round lg" style="background-image:url(/images/my/lb4.jpg);"></view>
+              <view class="content flex-sub">
+                <view class="up-id">高圆圆</view>
+                <view class="text-gray text-sm flex justify-between">
+                  2020年12月25日
+                </view>
+              </view>
+              <view class="flex flex-wrap justify-between align-center ">
+                <button class="cu-btn icon action" style="width:60px;background-color:white;" bindtap="showToast">
+                  <text class="cuIcon-add"></text>关注
+                </button>
+              </view>
+            </view>
+          </view>
+          <view class="text-content">
+            行走的圣诞树,去看晴雅集
+          </view>
+          <view class="grid flex-sub padding-lr {{isCard?'col-3 grid-square':'col-1'}}">
+            <view class="bg-img {{isCard?'':'only-img'}}" style="background-image:url(/images/my/lb4.jpg);"
+              wx:for="{{isCard?9:1}}" wx:key="{{index}}">
+            </view>
+          </view>
+          <view class="text-gray text-sm1 text-right padding">
+            <text class="cuIcon-attentionfill margin-lr-xs"></text>20万
+            <text class="cuIcon-appreciatefill margin-lr-xs"></text> 6万
+            <text class="cuIcon-messagefill margin-lr-xs"></text>2230
+          </view>
+        </view>
+      </view>
+
+
+      <view class="cu-card dynamic {{isCard?'no-card':''}}">
+        <view class="cu-item shadow">
+          <view class="cu-list menu-avatar">
+            <view class="cu-item">
+              <view class="cu-avatar round lg" style="background-image:url(/images/my/tx.jpg);"></view>
+              <view class="content flex-sub">
+                <view class="up-id">田馥甄HABE</view>
+                <view class="text-gray text-sm flex justify-between">
+                  来自 iphone XR
+                </view>
+              </view>
+
+              <view class="flex flex-wrap justify-between shareButtonBox align-center ">
+                <button class="cu-btn add-btn  icon" style="width:60px;background-color:white;" bindtap="showToast"
+                  data-target="RadioModal">
+                  <text class="cuIcon-add"></text>关注
+                </button>
+              </view>
+
+            </view>
+          </view>
+          <view class="text-content">
+            merry Christmas!!!
+          </view>
+          <!-- 内容 Setting data field "id" to undefined is invalid. -->
+          <view class='content_tp'>
+            <view class='content-item' wx:for="{{contentImgUrls}}" wx:key="url" wx:for-item="item">
+              <!-- 图片 -->
+              <image src="{{item.url}}" class="slide-image" mode='scaleToFill' />
+            </view>
+          </view>
+
+          <view class="text-gray text-sm1 text-right padding">
+            <text class="cuIcon-attentionfill margin-lr-xs"></text>12.5万
+            <text class="cuIcon-appreciatefill margin-lr-xs"></text> 9999+
+            <text class="cuIcon-messagefill margin-lr-xs"></text> 9999+
+          </view>
+        </view>
+      </view>
+
+      <view class="cu-card dynamic {{isCard?'no-card':''}}">
+        <view class="cu-item shadow">
+          <view class="cu-list menu-avatar">
+            <view class="cu-item">
+
+              <view class="cu-avatar round lg" style="background-image:url(/images/my/tx.jpg);"></view>
+              <view class="content flex-sub">
+                <view class="up-id">竹财辉之助_TT</view>
+                <view class="text-gray text-sm flex justify-between">
+                  2020年11月6号
+                </view>
+              </view>
+
+              <view class="flex flex-wrap justify-between shareButtonBox align-center ">
+                <button class="cu-btn add-btn  icon" style="width:60px;background-color:white;" bindtap="showToast"
+                  data-target="RadioModal">
+                  <text class="cuIcon-add"></text>关注
+                </button>
+              </view>
+
+            </view>
+          </view>
+          <view class="text-content">
+            早上好——
+          </view>
+          <view class="text-content">
+            打工人一大早开始一个人唱卡拉OK了W
+          </view>
+          <view class="grid flex-sub padding-lr {{isCard?'col-3 grid-square':'col-1'}}">
+            <view class="bg-img {{isCard?'':'only-img'}}" style="background-image:url(/images/my/lb4.jpg);"
+              wx:for="{{isCard?9:1}}" wx:key="{{index}}">
+            </view>
+          </view>
+          <view class="text-gray text-sm1 text-right padding">
+            <text class="cuIcon-attentionfill margin-lr-xs"></text>1.3万
+            <text class="cuIcon-appreciatefill margin-lr-xs"></text>2000
+            <text class="cuIcon-messagefill margin-lr-xs"></text>240
+          </view>
+        </view>
+      </view>
+    </swiper-item>
+
+    <!-- 科技 -->
+    <swiper-item>
+      <view class="cu-card article {{isCard?'no-card':''}}">
+        <view class="cu-item shadow">
+          <view class="title">
+            <view class="text-cut">微信小程序，navigationBar颜色设置</view>
+          </view>
+          <view class="content">
+            <image src="/images/my/lb3.jpg" mode="aspectFill"></image>
+            <view class="desc">
+              <view class="text-content"> navigationBarBackgroundColor设置颜色后，开发工具上正常，但是手机上就是不显示
+                原因：
+                navigationBarBackgroundColor设置成了rgb(0,0,0)的形式，模拟器上正常
+                解决方式：
+                在配置window颜色时，需要全部转成16进制，如：#ffffff，就正常了
+              </view>
+              <view>
+                <view class="cu-tag bg-red light sm round">100+万阅读</view>
+                <view class="cu-tag bg-green light sm round">80万互动</view>
+              </view>
+            </view>
+          </view>
+        </view>
+      </view>
+
+      <view class="cu-card article {{isCard?'no-card':''}}">
+        <view class="cu-item shadow">
+          <view class="title">
+            <view class="text-cut">ColorUI组件库简易教程之交互组件</view>
+          </view>
+          <view class="content">
+            <image src="/images/my/lb3.jpg" mode="aspectFill"></image>
+            <view class="desc">
+              <view class="text-content"> 交互组件
+                Bar操作条
+                底部操作条
+                我们可以使用Bar操作条自定义小程序底部的tabBar，就拿官方示例代码来说吧。
+                当我们要自定义tabBar的时候，pages.json文件中的tabBar配置就不写了，直接在首页上代码，pages.json文件中的pages数组中第一项表示应用启动页，即首页。示例中通过变量PageCur来切换不同tabBar页面，控制tabBar图标文字的样式切换。
+                底部操作条包括底部的tabBar和商场小程序加入购物车的操作条，底部操作条中cu-bar和tabbar是必备的class，foot则设置该操作条固定在页面底部。</view>
+              <view>
+                <view class="cu-tag bg-red light sm round">3.2万阅读</view>
+                <view class="cu-tag bg-green light sm round">8510互动</view>
+              </view>
+            </view>
+          </view>
+        </view>
+      </view>
+
+      <view class="cu-card article {{isCard?'no-card':''}}">
+        <view class="cu-item shadow">
+          <view class="title">
+            <view class="text-cut">达摩院2021十大科技趋势：云原生重塑IT技术体系</view>
+          </view>
+          <view class="content">
+            <image src="/images/my/lb3.jpg" mode="aspectFill"></image>
+            <view class="desc">
+              <view class="text-content"> 月28日，阿里巴巴达摩院发布2021十大科技趋势，这是达摩院成立三年以来第三次发布年度科技趋势。
+                2020年是不平凡的一年，经历疫情的洗礼，许多行业重启向上而生的螺旋，但疫情并未阻挡科技前进的脚步，量子计算、基础材料、生物医疗等领域的一系列重大科技突破纷至沓来，后疫情时代，基础技术及科技产业将如何发展，达摩院为科技行业提供了全新预测。
+                材料是一切科技发展的基础，新材料技术已推动多轮科技革命。然而，受限于成本高昂、生产工艺不成熟等问题，诸多新型材料未能实现大规模应用。达摩院认为，未来几年，以氮化镓和碳化硅为代表的第三代半导体材料将在材料生长、器件制备等技术上实现突破，并应用于5G基站、新能源汽车、特高压、数据中心等新基建场景，大幅降低整体能耗。
+              </view>
+              <view>
+                <view class="cu-tag bg-red light sm round">4.2万阅读</view>
+                <view class="cu-tag bg-green light sm round">6943互动</view>
+              </view>
+            </view>
+          </view>
+        </view>
+      </view>
+
+      <view class="cu-card article {{isCard?'no-card':''}}">
+        <view class="cu-item shadow">
+          <view class="title">
+            <view class="text-cut">今日头条优化实践： iOS 包大小二进制优化，一行代码减少 60 MB 下载大小
+            </view>
+          </view>
+          <view class="content">
+            <image src="/images/my/lb3.jpg" mode="aspectFill"></image>
+            <view class="desc">
+              <view class="text-content"> 苹果对 iOS App 大小有严格限制：下载大小超限会阻碍用户在蜂窝网络下载 App ，直接影响新用户转化；可执行文件超限将导致
+                App审核被拒，直接影响上架。今日头条探索实践 __TEXT 段迁移技术，成功减小下载大小 32%，并且解决了可执行文件大小受限问题。
+                一、背景知识
+                1. 下载大小限制
+                App 大小有下载大小和安装大小的概念。
+                下载大小是指 App 压缩包（也就是 .ipa 文件）所占的空间，用户在下载
+                App时，下载的是压缩包，这样做可以节省流量；当压缩包下载完成后，就会自动解压，解压过程也就是通常所说的安装过程；安装大小就是指压缩包解压后所占用的空间。安装大小在 App Store 上就可以看见
+                ，通常它会影响用户的下载意愿：</view>
+              <view>
+                <view class="cu-tag bg-red light sm round">6.8万阅读</view>
+                <view class="cu-tag bg-green light sm round">2.6万互动</view>
+              </view>
+            </view>
+          </view>
+        </view>
+      </view>
+
+      <view class="cu-card article {{isCard?'no-card':''}}">
+        <view class="cu-item shadow">
+          <view class="title">
+            <view class="text-cut">ColorUI组件库简易教程之交互组件</view>
+          </view>
+          <view class="content">
+            <image src="/images/my/lb3.jpg" mode="aspectFill"></image>
+            <view class="desc">
+              <view class="text-content"> 交互组件
+                Bar操作条
+                底部操作条
+                我们可以使用Bar操作条自定义小程序底部的tabBar，就拿官方示例代码来说吧。
+                当我们要自定义tabBar的时候，pages.json文件中的tabBar配置就不写了，直接在首页上代码，pages.json文件中的pages数组中第一项表示应用启动页，即首页。示例中通过变量PageCur来切换不同tabBar页面，控制tabBar图标文字的样式切换。
+                底部操作条包括底部的tabBar和商场小程序加入购物车的操作条，底部操作条中cu-bar和tabbar是必备的class，foot则设置该操作条固定在页面底部。</view>
+              <view>
+                <view class="cu-tag bg-red light sm round">60万阅读</view>
+                <view class="cu-tag bg-green light sm round">50万互动</view>
+              </view>
+            </view>
+          </view>
+        </view>
+      </view>
+
+      <view class="cu-card article {{isCard?'no-card':''}}">
+        <view class="cu-item shadow">
+          <view class="title">
+            <view class="text-cut">达摩院2021十大科技趋势：云原生重塑IT技术体系</view>
+          </view>
+          <view class="content">
+            <image src="/images/my/lb3.jpg" mode="aspectFill"></image>
+            <view class="desc">
+              <view class="text-content"> 月28日，阿里巴巴达摩院发布2021十大科技趋势，这是达摩院成立三年以来第三次发布年度科技趋势。
+                2020年是不平凡的一年，经历疫情的洗礼，许多行业重启向上而生的螺旋，但疫情并未阻挡科技前进的脚步，量子计算、基础材料、生物医疗等领域的一系列重大科技突破纷至沓来，后疫情时代，基础技术及科技产业将如何发展，达摩院为科技行业提供了全新预测。
+                材料是一切科技发展的基础，新材料技术已推动多轮科技革命。然而，受限于成本高昂、生产工艺不成熟等问题，诸多新型材料未能实现大规模应用。达摩院认为，未来几年，以氮化镓和碳化硅为代表的第三代半导体材料将在材料生长、器件制备等技术上实现突破，并应用于5G基站、新能源汽车、特高压、数据中心等新基建场景，大幅降低整体能耗。
+              </view>
+              <view>
+                <view class="cu-tag bg-red light sm round">12万阅读</view>
+                <view class="cu-tag bg-green light sm round">5.9万互动</view>
+              </view>
+            </view>
+          </view>
+        </view>
+      </view>
+
+      <view class="cu-card article {{isCard?'no-card':''}}">
+        <view class="cu-item shadow">
+          <view class="title">
+            <view class="text-cut">Ozone Streaming方式的写优化
+            </view>
+          </view>
+          <view class="content">
+            <image src="/images/my/lb3.jpg" mode="aspectFill"></image>
+            <view class="desc">
+              <view class="text-content">
+                在Ozone目前数据写出的过程，是基于从对象文件的block，再从block到chunk粒度进行数据的写出的。每次Ozone写完一个chunk后，对应着会触发一次write chunk的RPC
+                call。当我们写入的数据文件对象很大的时候，过程中将会涉及到很多次write chunk PRC的操作调用。这个RPC call的频繁调用意味着相应更多的transaction的发生。对于Ozone
+                Datanode里使用Raft协议做数据一致性同步过程的影响而言，则意味着更多的raft log需要被apply以及对应Ratis
+                snapshot的take操作也会变得更加频繁。在一定程度上，这会影响到Datanode节点本身的数据写出操作。最近社区提出了利用Ratis
+                Streaming的特性来优化Ozone数据写出的流程。本文笔者来简单聊聊Ozone Streaming这种全新方式的数据写出过程，目前此功能处于有一个初步的设计方案阶段。</view>
+              <view>
+                <view class="cu-tag bg-red light sm round">2.3万阅读</view>
+                <view class="cu-tag bg-green light sm round">5601互动</view>
+              </view>
+            </view>
+          </view>
+        </view>
+      </view>
+
+      <view class="cu-card article {{isCard?'no-card':''}}">
+        <view class="cu-item shadow">
+          <view class="title">
+            <view class="text-cut">腾讯位置服务开发应用-使用教程，案例分享，知识总结</view>
+          </view>
+          <view class="content">
+            <image src="/images/my/lb3.jpg" mode="aspectFill"></image>
+            <view class="desc">
+              <view class="text-content">
+                作为一名在职岗位为【前端开发工程师】的程序员，我开发的应用程序经常需要获取用户位置信息，需要再某些场合下使用展示地图以及地图商的某些地点，需要获取行政区划列表（省市区）以及地址详情信息，需要在地图上规划一条（动态）路线，轨迹回放，小车移动，需要创建信息窗口，用于地点的摘要性信息的展示。公司内做的是共享项目，
+                场景是这样的，一种常见共享充电宝（功能差不多和流行的共享单车一样），在做小程序首页时，需要做到的是扫码充电，联系客服（问题反馈），获取地理位置，开篇即是一副地理位置，在你附近获取到区域内店铺信息，点击该店的logo标志可以获取该店的地理位置，营业时间，店名，距离，是否当前该店里是否有可借的充电宝等信息。
+              </view>
+              <view>
+                <view class="cu-tag bg-red light sm round">1万阅读</view>
+                <view class="cu-tag bg-green light sm round">2502互动</view>
+              </view>
+            </view>
+          </view>
+        </view>
+      </view>
+
+      <view class="cu-card article {{isCard?'no-card':''}}">
+        <view class="cu-item shadow">
+          <view class="title">
+            <view class="text-cut">论程序员成长：如何像游戏一样打怪？</view>
+          </view>
+          <view class="content">
+            <image src="/images/my/lb3.jpg" mode="aspectFill"></image>
+            <view class="desc">
+              <view class="text-content"> 对于大部分公司来说，职级体系必然与薪资体系相挂钩的。你的职级越高，你要做的事情 level
+                更高，那么你的应得收入就越多。即从理论上来说，你创造的价值越大，那么你所获得的收入就越多。比如说，程序员 A 写了某个业务系统的关键代码，这个业务系统非常成功，那么你创造的价值就远比另外一个程序员
+                B。（PS：但是实际上并非如此，有可能不会伴随你产生的价值）。
+                与此同时，A 之所以拿的工资比 B 高，并非因为 A 的编码能力比 B 强很大，又或者是因为 A 的其它能力比 B 强。而是因为 A 刚好出现在一个合适的地点上，所以 A 有了更多的职级和更高的收入。
+                当然了，那些在 BAT 996 的程序员，能力都是比我强的
+              </view>
+              <view>
+                <view class="cu-tag bg-red light sm round">6万阅读</view>
+                <view class="cu-tag bg-green light sm round">5200互动</view>
+              </view>
+            </view>
+          </view>
+        </view>
+      </view>
+
+    </swiper-item>
+
+    <!-- 旅游 -->
+    <swiper-item>
+      <view class="cu-load  {{!isLoad?'loading':'over'}}" style="text-align:center;"></view>
+    </swiper-item>
+
+    <!-- 时尚 -->
+    <swiper-item>
+      <view class="cu-load  {{!isLoad?'loading':'over'}}" style="text-align:center;"></view>
+    </swiper-item>
+
+    <!-- 文章 -->
+    <swiper-item>
+      <view class="cu-load  {{!isLoad?'loading':'over'}}" style="text-align:center;"></view>
+    </swiper-item>
+  </swiper>
+</view>

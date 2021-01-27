@@ -1,0 +1,95 @@
+/* pages/hot/index.wxss */
+.swiper-tab{
+  height: 10vh;
+  display: flex;
+  line-height: 7vh;
+  margin-bottom: 10px;
+}
+.swiper-tab-list{  
+  font-size: 16px;
+  display: inline-block;
+  width: 50%;
+  color: #3f3c3c;
+  text-align: center;
+  margin-bottom: 10px;
+  padding-top: 10px;
+  padding-bottom: 10px;
+  font-weight: 600;
+}
+.on{ 
+  color:#dd2c00;
+  padding-bottom:1vh;
+}
+ 
+.swiper-box{ 
+  display: block; 
+  height: 80vh; 
+  width: 100%; 
+  overflow: scroll; 
+}
+.swiper-box view{
+  text-align: center;
+}
+.cu-list+.cu-list {
+  margin-top: 10rpx;
+  background-color: white;
+}
+.size-num{
+  font-size: 30rpx;
+  font-weight: bolder;
+  color: #fc8621;
+}
+.content {
+  padding:30rpx;
+}
+.size-txt{
+  text-align: left;
+  font-size: 30rpx;
+  color: #3f3c3c;
+}
+.size-look{
+  font-size: 27rpx;
+  color: gray;
+}
+.size-top{
+  font-size: 27rpx;
+
+}
+.mtop{
+  margin-top:5rpx;
+}
+.cu-avatar{
+  margin-left:50rpx;
+  margin-right: 40rpx;
+  background-color: orangered;
+  width:40rpx;
+  height:40rpx;
+}
+.bg{
+  background-color: rgb(100, 35, 11);
+}
+.cuIcon-top{
+  font-size:30rpx;
+  font-weight: bolder;
+}
+.size-img{
+  width:auto;
+  height:550rpx;
+  /* background-size: cover; */
+}
+.aaa{
+  margin-bottom: -30rpx;
+  margin-left: 30rpx;
+  margin-right: 30rpx;
+}
+.num-t{
+  margin-top:35rpx;
+  margin-left: 33rpx;
+  margin-right: 50rpx;
+  font-size:30rpx;
+  font-weight:600;
+  /* margin-bottom: 20rpx; */
+}
+.bar-color{
+  background-image: linear-gradient(to right,#00c7fe, #00a7ff);
+}
